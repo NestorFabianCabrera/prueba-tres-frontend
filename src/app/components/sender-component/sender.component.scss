@@ -1,0 +1,24 @@
+.senderContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.card{
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  margin: 1rem;
+}
+
+.button{
+  width: 50%;
+  margin: 0.2rem;
+}
+
+
+.deleteButton{
+  background-color: red;
+  color: white;
+}
