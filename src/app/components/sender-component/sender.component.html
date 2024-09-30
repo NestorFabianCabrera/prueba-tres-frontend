@@ -4,8 +4,8 @@
       <mat-form-field>
         <mat-label>Agregar número</mat-label>
         <input matInput formControlName="numberToAdd" type="text">
-        <mat-error *ngIf="form.get('numberToAdd')?.hasError('required')">El campo es obligatorio! 😡</mat-error>
-        <mat-error *ngIf="form.get('numberToAdd')?.hasError('pattern')">Debe ser un número! 😡</mat-error>
+        <mat-error *ngIf="form.get('numberToAdd')?.hasError('required')">❌ | El campo es obligatorio</mat-error>
+        <mat-error *ngIf="form.get('numberToAdd')?.hasError('pattern')">❌ | Debe ser un número</mat-error>
       </mat-form-field>
       <div>
         <button mat-raised-button color="primary" (click)="addNumber()" [disabled]="form.get('numberToAdd')?.invalid" class="button">Insertar</button>
@@ -19,11 +19,11 @@
       <mat-form-field>
         <mat-label>Eliminar número</mat-label>
         <input matInput formControlName="numberToRemove" type="text">
-        <mat-error *ngIf="form.get('numberToRemove')?.hasError('pattern')">Debe ser un número! 😡</mat-error>
+        <mat-error *ngIf="form.get('numberToRemove')?.hasError('pattern')">❌ | Debe ser un número</mat-error>
       </mat-form-field>
       <div>
         <button mat-raised-button (click)="removeNumber()" [disabled]="form.get('numberToRemove')?.invalid" class="button deleteButton">Eliminar</button>
-        <button mat-raised-button color="accent" (click)="clearArray()" class="button">Limpiar Arreglo</button>
+        <button mat-raised-button color="primary" (click)="clearArray()" class="button">Limpiar Arreglo</button>
       </div>
     </form>
   </mat-card>

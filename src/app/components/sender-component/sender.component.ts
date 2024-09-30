@@ -10,6 +10,7 @@ import { DataService } from "../../services/data-service.service";
 export class SenderComponent {
   form: FormGroup;
 
+  // Declaro el formulario con los campos que necesito
   constructor(private fb: FormBuilder, private dataService: DataService) {
     this.form = this.fb.group({
       numberToAdd: ['', [Validators.required, Validators.pattern(/^[0-9]+$/)]],
@@ -23,11 +24,12 @@ export class SenderComponent {
       const numberToAdd = Number(this.form.get('numberToAdd')?.value);
       // Lo agrego al arreglo
       this.dataService.addNumberToArray(numberToAdd);
-      // Reseteoo
+      // Reseteo el formulario
       this.form.get('numberToAdd')?.reset();
     }
   }
 
+  // Genero un número aleatorio
   generateRandomNumber() {
     const randomNumber = this.dataService.generateRandomNumber(1, 100);
     this.dataService.addNumberToArray(randomNumber);
@@ -35,8 +37,11 @@ export class SenderComponent {
 
   removeNumber() {
     if (this.form.get('numberToRemove')?.valid) {
+      // Obtengo el valor del campo y lo convierto en número
       const numberToRemove = Number(this.form.get('numberToRemove')?.value);
+      // Lo borro del arreglo
       this.dataService.removeNumberFromArray(numberToRemove);
+      // Reseteo el formulario
       this.form.get('numberToRemove')?.reset();
     }
   }
